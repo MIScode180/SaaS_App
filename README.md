@@ -1,141 +1,355 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 AI Learning Platform
 
-## Getting Started
+> **Personalized 1-on-1 AI learning sessions designed to make learning interactive, focused, and accessible.**
 
-First, run the development server:
+An AI-powered learning platform built with **Next.js, TypeScript, Clerk, Supabase, Vapi, and modern UI components**.
+
+The platform allows users to create personalized learning sessions with an AI tutor, explore different subjects, track their learning history, save useful sessions, and continue learning through an interactive conversational experience.
+
+## 🌐 Live Demo
+
+**[Visit AI Learning Platform](https://saa-s-app-12mx.vercel.app/)**
+
+---
+
+## ✨ Features
+
+### 🎓 1-on-1 AI Learning
+
+Interact with an AI tutor through personalized learning sessions instead of following a static course structure.
+
+### 🧠 Personalized Sessions
+
+Create learning sessions based on:
+
+* Subject
+* Topic
+* Learning preferences
+* Session requirements
+
+### 🎙️ Real-Time AI Conversation
+
+Use an interactive voice-based AI experience to communicate with the AI tutor and learn through conversation.
+
+### 📚 Learning Library
+
+Browse available learning subjects and discover sessions based on different areas of knowledge.
+
+### 🕘 Session History
+
+Keep track of previously completed learning sessions and return to your previous learning activity.
+
+### 🔖 Bookmarks
+
+Save important or useful learning sessions for quick access later.
+
+### 🔐 Secure Authentication
+
+User authentication is handled through **Clerk**, providing secure account management and protected application experiences.
+
+### 📱 Responsive Interface
+
+Designed to work across:
+
+* Desktop
+* Tablet
+* Mobile
+
+### ⚡ Modern UI
+
+Built with reusable components and a clean interface focused on reducing distractions while learning.
+
+---
+
+## 🖥️ Application Flow
+
+```text
+User
+ │
+ ▼
+Authentication
+ │
+ ▼
+Learning Library
+ │
+ ▼
+Choose Subject / Topic
+ │
+ ▼
+Create Learning Session
+ │
+ ▼
+1-on-1 AI Tutor
+ │
+ ▼
+Session Completed
+ │
+ ├── Session History
+ │
+ └── Bookmark
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* **Next.js**
+* **TypeScript**
+* **React**
+* **Tailwind CSS**
+* **shadcn/ui**
+
+### Authentication
+
+* **Clerk**
+
+### Database
+
+* **Supabase**
+* PostgreSQL
+
+### AI / Voice
+
+* **Vapi**
+
+### Forms & Validation
+
+* **React Hook Form**
+* **Zod**
+
+### Development
+
+* **ESLint**
+* **Git**
+* **GitHub**
+
+### Deployment
+
+* **Vercel**
+
+---
+
+## 🏗️ Architecture
+
+The application follows a modern Next.js architecture where the frontend, authentication, database, and AI services work together.
+
+```text
+                    ┌──────────────────┐
+                    │      User        │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │     Next.js      │
+                    │   App Router     │
+                    └────────┬─────────┘
+                             │
+              ┌──────────────┼──────────────┐
+              │              │              │
+              ▼              ▼              ▼
+        ┌──────────┐   ┌──────────┐   ┌──────────┐
+        │  Clerk   │   │ Supabase │   │   Vapi   │
+        │   Auth   │   │ Database │   │ AI Voice │
+        └──────────┘   └──────────┘   └──────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Learning Data &  │
+                    │ Session History  │
+                    └──────────────────┘
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+├── app/
+│   ├── (auth)/
+│   ├── (root)/
+│   ├── api/
+│   ├── globals.css
+│   └── layout.tsx
+│
+├── components/
+│   ├── ui/
+│   ├── Navbar.tsx
+│   ├── LibraryCard.tsx
+│   ├── LibraryList.tsx
+│   └── ...
+│
+├── lib/
+│   ├── actions/
+│   ├── supabase/
+│   ├── vapi/
+│   └── utils.ts
+│
+├── public/
+│   └── ...
+│
+├── types/
+│   └── ...
+│
+├── .env.local
+├── next.config.ts
+├── package.json
+└── README.md
+```
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env.local` file in the project root.
+
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+NEXT_PUBLIC_VAPI_WEB_TOKEN=
+NEXT_PUBLIC_VAPI_WORKFLOW_ID=
+```
+
+> Never commit your `.env.local` file or expose private API keys in your repository.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
+
+### 2. Navigate to the project
+
+```bash
+cd your-project-name
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure environment variables
+
+Create:
+
+```text
+.env.local
+```
+
+Add the required Clerk, Supabase, and Vapi credentials.
+
+### 5. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-# Add Clerk to Next.js App Router
-
-If a Next.js App Router project does not already exist, first create one using:
-
-```bash
-npx create-next-app@latest my-clerk-app --yes
+```text
+http://localhost:3000
 ```
 
-Install `@clerk/nextjs@latest`. Create `proxy.ts` with `clerkMiddleware()` from `@clerk/nextjs/server` (in `src/` if it exists, otherwise project root). Add `<ClerkProvider>` inside `<body>` in `app/layout.tsx`. Use `<Show>`, `<UserButton>`, `<SignInButton>`, `<SignUpButton>` from `@clerk/nextjs`.
+---
 
-Latest docs: https://clerk.com/docs/nextjs/getting-started/quickstart
+## 🗄️ Database
 
-## Install
+Supabase is used as the application's database layer.
 
-```bash
-npm install @clerk/nextjs
-```
+The platform stores learning-related information such as:
 
-## proxy.ts
+* User information
+* Learning libraries
+* Learning sessions
+* Session history
+* Bookmarked sessions
 
-```typescript
-import { clerkMiddleware } from '@clerk/nextjs/server'
+Database access is organized through reusable server-side actions and Supabase utilities.
 
-export default clerkMiddleware()
+---
 
-export const config = {
-  matcher: [
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)',
-  ],
-}
-```
+## 🔒 Authentication & Security
 
-## app/layout.tsx
+Authentication is implemented using Clerk.
 
-```typescript
-import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
-import "./globals.css";
+The application uses authenticated user information to associate learning activity with the correct account.
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        <ClerkProvider>
-          <header>
-            <Show when="signed-out">
-              <SignInButton />
-              <SignUpButton />
-            </Show>
-            <Show when="signed-in">
-              <UserButton />
-            </Show>
-          </header>
-          {children}
-        </ClerkProvider>
-      </body>
-    </html>
-  );
-}
-```
+Sensitive environment variables are kept outside the source code and configured through environment variables during development and deployment.
 
-## Rules
+---
 
-ALWAYS:
+## 🧠 Technical Highlights
 
-- Use `clerkMiddleware()` from `@clerk/nextjs/server` in `proxy.ts`
-- Add `<ClerkProvider>` inside `<body>` in `app/layout.tsx`
-- Import from `@clerk/nextjs` or `@clerk/nextjs/server`
-- Use App Router (app/page.tsx, app/layout.tsx)
-- async/await with auth() from `@clerk/nextjs/server`
-- Use existing package manager
+This project demonstrates practical experience with:
 
-NEVER:
+* Next.js App Router
+* TypeScript
+* Server-side actions
+* Authentication
+* Database integration
+* AI/voice API integration
+* Form validation
+* Reusable React components
+* Responsive UI development
+* Protected user experiences
+* Environment configuration
+* Vercel deployment
 
-- Reference `_app.tsx` or pages router
-- Use `authMiddleware()` (replaced by `clerkMiddleware()`)
-- Use old env var patterns
-- Import deprecated APIs (withAuth, old currentUser)
-- Use deprecated `<SignedIn>`, `<SignedOut>` (replaced by `<Show>`)
+---
 
-## Deprecated (DO NOT use)
+## 📈 Future Improvements
 
-```typescript
-import { authMiddleware } from '@clerk/nextjs' // WRONG
-function MyApp({ Component, pageProps }) {} // pages router, WRONG
-pages / signin.js // WRONG
-<SignedIn> // WRONG, use <Show when="signed-in">
-<SignedOut> // WRONG, use <Show when="signed-out">
-```
+Potential improvements include:
 
-## Verify Before Responding
+* 📊 Learning progress analytics
+* 🎯 Personalized learning recommendations
+* 🏆 Learning achievements and streaks
+* 📈 AI-generated progress reports
+* 📝 AI-generated quizzes
+* 📚 More learning subjects
+* 🌍 Multi-language learning
+* 💳 Subscription and billing
+* 👥 Collaborative learning
+* 📱 PWA/mobile experience
 
-1. Is `clerkMiddleware()` used in `proxy.ts`?
-2. Is `ClerkProvider` inside `<body>` in `app/layout.tsx`?
-3. Are imports only from `@clerk/nextjs` or `@clerk/nextjs/server`?
-4. Is it using App Router, not `_app.tsx` or `pages/`?
-5. Is it using `<Show>` instead of `<SignedIn>`/`<SignedOut>`?
+---
 
-If any fails, revise.
+## 🎯 Why I Built This
 
-## After Setup
+Traditional learning platforms often rely heavily on predefined courses and passive content.
 
-Have the user sign up as their first test user in the nav. After signup succeeds and a profile icon appears, congratulate them. Then recommend exploring: Organizations (https://clerk.com/docs/guides/organizations/overview), Components (https://clerk.com/docs/reference/components/overview), Dashboard (https://dashboard.clerk.com/).
+This project explores a more interactive approach where learners can communicate directly with an AI tutor and create focused learning sessions around the topics they want to understand.
+
+The goal is to combine **modern web development, AI interaction, authentication, and data-driven learning experiences** into a single production-style SaaS application.
+
+---
+
+## 👨‍💻 Developer
+
+**IS / MIScode180**
+
+Frontend Developer focused on building modern, scalable, and high-performance web applications using:
+
+**React • Next.js • TypeScript • JavaScript • Tailwind CSS**
+
+### 🔗 Links
+
+* 🌐 Live Application: https://saa-s-app-12mx.vercel.app/
+* 💻 GitHub: https://github.com/MIScode180
+
+---
+
+## ⭐ If you find this project interesting
+
+Feel free to explore the project, review the implementation, and connect with me for collaboration or frontend development opportunities.
