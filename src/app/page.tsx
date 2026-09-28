@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 
 import CTA from "@/components/CTA";
 import LiabraryCard from "@/components/LiabraryCard";
@@ -20,12 +21,11 @@ const Page = async () => {
         <section className="home-section">
           {libraies.map((library) => (
             <LiabraryCard
-            key={library.id}
-            {...library}
-            color={getSubjectColor(library.subject)}
+              key={library.id}
+              {...library}
+              color={getSubjectColor(library.subject)}
             />
           ))}
-
         </section>
 
         <section className="home-section">
@@ -34,6 +34,7 @@ const Page = async () => {
             libraries={recentsSessionLibraries}
             classNames="w-2/3 max-lg:w-full"
           />
+
           <CTA />
         </section>
       </main>
